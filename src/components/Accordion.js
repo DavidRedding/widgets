@@ -1,5 +1,7 @@
 import React from "react";
 
-const Accordion = () => <h2>Accordion Boys</h2>;
+const Accordion = (props) => (
+  <h2>We were passed {props.items.length} items </h2>
+);
 
 export default Accordion;

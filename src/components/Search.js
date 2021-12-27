@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Search = () => {
   const [term, setTerm] = useState("");
+
+  //runs with every render
+  console.log(`GUIDE: I RUN @ EVERY RENDER`);
+
+  // only run once
+  useEffect(() => console.log(`I ONLY RUN ONCE`), []);
+
+  // runs on initial, then after each re-render
+  useEffect(() => console.log(`I RUN AT INITIAL & AFTER RE-RENDER`));
 
   return (
     <React.Fragment>

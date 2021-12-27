@@ -19,7 +19,12 @@ const Search = () => {
       setResults(data.query.search);
     };
 
-    if (term) return search();
+    const timeoutId = setTimeout(() => {
+      if (term) return search();
+    }, 1000);
+
+    // Clean-up Function
+    return () => clearTimeout(timeoutId);
   }, [term]);
 
   const renderedResults = results.map((result) => {

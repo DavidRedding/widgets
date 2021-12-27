@@ -10,12 +10,12 @@ const Accordion = ({ items }) => {
   const renderedItems = items.map((item, i) => {
     return (
       <React.Fragment key={item.title}>
-        <div className="active title" onClick={() => onTitleClick(i)}>
+        <div className="title" onClick={() => onTitleClick(i)}>
           <i className="dropdown icon"></i>
           {item.title}
         </div>
 
-        <div className="content active">
+        <div className="content">
           <p>{item.content}</p>
         </div>
       </React.Fragment>

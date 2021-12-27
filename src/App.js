@@ -19,7 +19,7 @@ const items = [
 
 export default () => (
   <div>
-    <h1>Widgets App</h1>
+    <h1 style={{ marginLeft: "1rem" }}>Widgets App</h1>
     <Search />
     {/* <Accordion items={items} /> */}
   </div>

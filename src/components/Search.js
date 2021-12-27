@@ -5,8 +5,6 @@ const Search = () => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
 
-  console.log(results);
-
   useEffect(() => {
     const search = async () => {
       const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
@@ -20,9 +18,20 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
-    // circumvents error msg
+
     if (term) return search();
   }, [term]);
+
+  const renderedResults = results.map((result) => {
+    return (
+      <div className="item">
+        <div className="content">
+          <div className="header">{result.title}</div>
+          {result.snippet}
+        </div>
+      </div>
+    );
+  });
 
   return (
     <React.Fragment>
@@ -38,6 +47,7 @@ const Search = () => {
         />
         <i className="user icon"></i>
       </div>
+      <div className="ui celled list">{renderedResults}</div>
     </React.Fragment>
   );
 };

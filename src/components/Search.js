@@ -51,12 +51,9 @@ const Search = () => {
   });
 
   return (
-    <React.Fragment>
-      <h4 style={{ marginLeft: "1rem" }}>Enter Search Term</h4>
-      <div
-        className="ui loading icon input"
-        style={{ width: "95%", marginLeft: "1rem" }}
-      >
+    <div className="ui container">
+      <h4>Enter Search Term</h4>
+      <div className="ui loading icon input" style={{ width: "100%" }}>
         <input
           onChange={(e) => setTerm(e.target.value)}
           value={term}
@@ -65,7 +62,7 @@ const Search = () => {
         <i className="user icon"></i>
       </div>
       <div className="ui celled list">{renderedResults}</div>
-    </React.Fragment>
+    </div>
   );
 };
 

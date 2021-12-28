@@ -3,10 +3,25 @@ import React from "react";
 // import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 
+const options = [
+  {
+    label: "The Color Red",
+    value: "red",
+  },
+  {
+    label: "The Color Green",
+    value: "green",
+  },
+  {
+    label: "The Color Blue",
+    value: "blue",
+  },
+];
+
 export default () => (
   <div className="ui container">
     <h1>Widgets App</h1>
-    <Dropdown />
+    <Dropdown options={options} />
     {/* <Search /> */}
     {/* <Accordion items={items} /> */}
   </div>

@@ -1,10 +1,38 @@
-import React from "react";
-// de-structure stops the need for props. prefix
+import React, { useState } from "react";
 
-const Dropdown = ({ options }) => {
-  console.log(options[0]);
+const Dropdown = ({ options, selected, onSelectedChange }) => {
+  const [open, setOpen] = useState(false);
 
-  return <h2>Dropdown Menu</h2>;
+  const renderedOptions = options.map((option) => {
+    if (option.value === selected.value) return null;
+
+    return (
+      <div
+        onClick={() => onSelectedChange(option)}
+        key={option.value}
+        className="item"
+      >
+        <span className="text">{option.label}</span>
+      </div>
+    );
+  });
+
+  // prettier-ignore
+  // Display
+
+  return (
+    <div className="ui form">
+      <label className="label">Select a Color</label>
+      <div
+        onClick={() => setOpen(!open)}
+        className={`ui fluid selection dropdown ${open ? "visible active" : ""}`}
+      >
+        <div className="divider default text">{selected.label}</div>
+        <i className="dropdown icon"></i>
+        <div className={`menu ${open ? "visible transition" : ""}`}>{renderedOptions}</div>
+      </div>
+    </div>
+  );
 };
 
 export default Dropdown;

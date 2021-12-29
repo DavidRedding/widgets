@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
+  const ref = useRef();
 
-  // We're only gonna want to run this once
+  // prettier-ignore
   useEffect(() => {
-    document.body.addEventListener("click", () => console.log(`CLICK!!!`));
+    document.body.addEventListener("click", () => {
+      setOpen(false);
+    },
+      { capture: true } // react v.17
+    );
   }, []);
 
   const renderedOptions = options.map((option) => {
@@ -25,16 +30,22 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   // prettier-ignore
   // Display
 
+  console.log(ref.current);
+
   return (
-    <div className="ui form">
+    <div ref={ref} className="ui form">
       <label className="label">Select a Color</label>
       <div
         onClick={() => setOpen(!open)}
-        className={`ui fluid selection dropdown ${open ? "visible active" : ""}`}
+        className={`ui fluid selection dropdown ${
+          open ? "visible active" : ""
+        }`}
       >
         <div className="divider default text">{selected.label}</div>
         <i className="dropdown icon"></i>
-        <div className={`menu ${open ? "visible transition" : ""}`}>{renderedOptions}</div>
+        <div className={`menu ${open ? "visible transition" : ""}`}>
+          {renderedOptions}
+        </div>
       </div>
     </div>
   );

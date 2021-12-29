@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
+  const [open, setOpen] = useState(false);
+
   const renderedOptions = options.map((option) => {
     if (option.value === selected.value) return null;
 
@@ -15,15 +17,19 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     );
   });
 
+  // prettier-ignore
   // Display
 
   return (
     <div className="ui form">
       <label className="label">Select a Color</label>
-      <div className="ui fluid selection dropdown visible active ">
+      <div
+        onClick={() => setOpen(!open)}
+        className={`ui fluid selection dropdown ${open ? "visible active" : ""}`}
+      >
         <div className="divider default text">{selected.label}</div>
         <i className="dropdown icon"></i>
-        <div className="menu visible transition">{renderedOptions}</div>
+        <div className={`menu ${open ? "visible transition" : ""}`}>{renderedOptions}</div>
       </div>
     </div>
   );

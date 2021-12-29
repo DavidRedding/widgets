@@ -18,15 +18,16 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
+    // prettier-ignore
     // initial render
     if (term && !results.length) {
-      search();
+      search(); // first/inital function
     } else {
       const timeoutId = setTimeout(() => {
         if (term) return search();
       }, 1000);
 
-      // Clean-up Function
+      // Second/Clean-up Function
       return () => clearTimeout(timeoutId);
     }
   }, [term]);

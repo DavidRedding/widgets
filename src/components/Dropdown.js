@@ -7,16 +7,21 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   // prettier-ignore
 
   useEffect(() => {
-    document.body.addEventListener("click", (e) => {
-      
+    // callBack function
+    const onBodyClick = (e) => {
       // is the element clicked, inside of our component?
-      if(ref.current.contains(e.target)) return;
-      
+      if (ref.current.contains(e.target)) return;
       // if not
       setOpen(false);
-    },
-      { capture: true } // react v.17
-    );
+    };
+
+    // first function
+    document.body.addEventListener("click", onBodyClick, { capture: true });
+
+    // clean up function
+    return () => {
+      document.body.removeEventListener("click", onBodyClick, {capture: true, });
+    };
   }, []);
 
   const renderedOptions = options.map((option) => {

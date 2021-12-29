@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import Accordion from "./components/Accordion";
 // import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
@@ -18,14 +18,22 @@ const options = [
   },
 ];
 
-export default () => (
-  <div className="ui container">
-    <h1>Widgets App</h1>
-    <Dropdown options={options} />
-    {/* <Search /> */}
-    {/* <Accordion items={items} /> */}
-  </div>
-);
+export default () => {
+  const [selected, setSelected] = useState(options[0]);
+
+  return (
+    <div className="ui container">
+      <h1>Widgets App</h1>
+      <Dropdown
+        selected={selected}
+        onSelectedChange={setSelected}
+        options={options}
+      />
+      {/* <Search /> */}
+      {/* <Accordion items={items} /> */}
+    </div>
+  );
+};
 
 // const items = [
 //   {

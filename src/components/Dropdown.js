@@ -5,8 +5,14 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   const ref = useRef();
 
   // prettier-ignore
+
   useEffect(() => {
-    document.body.addEventListener("click", () => {
+    document.body.addEventListener("click", (e) => {
+      
+      // is the element clicked, inside of our component?
+      if(ref.current.contains(e.target)) return;
+      
+      // if not
       setOpen(false);
     },
       { capture: true } // react v.17
@@ -29,8 +35,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 
   // prettier-ignore
   // Display
-
-  console.log(ref.current);
 
   return (
     <div ref={ref} className="ui form">

@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
+
+  // We're only gonna want to run this once
+  useEffect(() => {
+    document.body.addEventListener("click", () => console.log(`CLICK!!!`));
+  }, []);
 
   const renderedOptions = options.map((option) => {
     if (option.value === selected.value) return null;

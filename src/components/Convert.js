@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Convert = ({ language, text }) => {
+  const [translated, setTranslated] = useState("");
+
   useEffect(() => {
     axios({
       method: "post",
@@ -14,7 +16,7 @@ const Convert = ({ language, text }) => {
     });
   }, [language, text]);
 
-  return <h3>rendered conversion</h3>;
+  return <h3>{translated}</h3>;
 };
 
 export default Convert;

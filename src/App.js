@@ -20,7 +20,7 @@ const options = [
 ];
 
 export default () => {
-  const [selected, setSelected] = useState(options[0]);
+  // const [selected, setSelected] = useState(options[0]);
 
   return (
     <div className="ui container">

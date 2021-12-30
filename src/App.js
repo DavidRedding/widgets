@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import Translate from "./components/Translate";
+import Translate from "./components/Translate";
 // import Accordion from "./components/Accordion";
-import Search from "./components/Search";
+// import Search from "./components/Search";
 // import Dropdown from "./components/Dropdown";
 
 const options = [
@@ -25,14 +25,14 @@ export default () => {
   return (
     <div className="ui container">
       <h1>Widgets App</h1>
-      {/* <Translate /> */}
+      <Translate />
       {/* <Dropdown
         selected={selected}
         onSelectedChange={setSelected}
         options={options}
         title={"Color"}
       /> */}
-      <Search />
+      {/* <Search /> */}
       {/* <Accordion items={items} /> */}
     </div>
   );

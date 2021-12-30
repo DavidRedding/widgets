@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+// prettier-ignore
 const Search = () => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("christmas");
+  const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
+
+  /* Each time term changes, wait 1 second,
+  then update the debouncedTerm to match. */
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 1000);
+
+    // If the user continues typing cancel and start a new one.
+    return () => clearTimeout(timerId);
+    
+  }, [term]);
 
   useEffect(() => {
     const search = async () => {
@@ -13,24 +27,13 @@ const Search = () => {
           list: "search",
           origin: "*",
           format: "json",
-          srsearch: term,
+          srsearch: debouncedTerm,
         },
       });
       setResults(data.query.search);
     };
-    // prettier-ignore
-    // initial render
-    if (term && !results.length) {
-      search(); // first/inital function
-    } else {
-      const timeoutId = setTimeout(() => {
-        if (term) return search();
-      }, 1000);
-
-      // Second/Clean-up Function
-      return () => clearTimeout(timeoutId);
-    }
-  }, [term]);
+    search();
+  }, [debouncedTerm]);
 
   const renderedResults = results.map((result) => {
     return (

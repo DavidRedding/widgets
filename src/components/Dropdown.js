@@ -46,11 +46,9 @@ const Dropdown = ({ options, selected, onSelectedChange, title }) => {
       <label className="label">Select a {title}</label>
       <div
         onClick={() => setOpen(!open)}
-        className={`ui fluid selection dropdown ${
-          open ? "visible active" : ""
-        }`}
+        className={`ui fluid selection dropdown ${open ? "visible active" : ""}`}
       >
-        <div className="divider default text">{selected.label}</div>
+        <div className="divider text">{selected.label}</div>
         <i className="dropdown icon"></i>
         <div className={`menu ${open ? "visible transition" : ""}`}>
           {renderedOptions}

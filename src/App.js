@@ -20,7 +20,7 @@ const options = [
 ];
 
 export default () => {
-  // const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(options[0]);
 
   return (
     <div className="ui container">
@@ -30,6 +30,7 @@ export default () => {
         selected={selected}
         onSelectedChange={setSelected}
         options={options}
+        title={"Color"}
       /> */}
       {/* <Search /> */}
       {/* <Accordion items={items} /> */}

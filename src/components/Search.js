@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("christmas");
+  const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -18,16 +19,15 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
-    // prettier-ignore
+
     // initial render
     if (term && !results.length) {
-      search(); // first/inital function
+      search();
     } else {
       const timeoutId = setTimeout(() => {
         if (term) return search();
       }, 1000);
 
-      // Second/Clean-up Function
       return () => clearTimeout(timeoutId);
     }
   }, [term]);

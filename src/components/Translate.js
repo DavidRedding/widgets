@@ -1,3 +1,4 @@
+// AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM
 import React, { useState } from "react";
 import Dropdown from "./Dropdown";
 
@@ -6,6 +7,7 @@ const options = [
   { label: "Arabic", value: "ar" },
   { label: "Hindi", value: "hi" },
 ];
+
 // prettier-ignore
 const Translate = () => {
   const [language, setLanguage] = useState(options[0]);

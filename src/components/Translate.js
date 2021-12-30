@@ -5,7 +5,11 @@ import Convert from "./Convert";
 const options = [
   { label: "Afrikaans", value: "af" },
   { label: "Arabic", value: "ar" },
-  { label: "Hindi", value: "hi" },
+  { label: "Dutch", value: "nl" },
+  { label: "French", value: "fr" },
+  { label: "German", value: "de" },
+  { label: "Greek", value: "el" },
+  { label: "Spanish", value: "es" },
 ];
 
 // prettier-ignore

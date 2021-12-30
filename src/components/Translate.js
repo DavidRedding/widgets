@@ -9,13 +9,18 @@ const options = [
 // prettier-ignore
 const Translate = () => {
   const [language, setLanguage] = useState(options[0]);
+  const [text, setText] = useState("");
 
   return (
     <div style={{ marginTop: "1rem" }}>
-
+     
       <label className="label">Enter Text:</label>
-      <div className="ui fluid focus input">
-        <input placeholder="Search a Phrase..." />
+      <div className="ui fluid input">
+        <input
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+          placeholder="Search a Phrase..."
+        />
       </div>
 
       <div style={{ marginTop: "2rem" }}>
@@ -26,7 +31,6 @@ const Translate = () => {
           title={"Language"}
         />
       </div>
-
     </div>
   );
 };

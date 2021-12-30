@@ -36,7 +36,8 @@ const Translate = () => {
         />
       </div>
 
-      <div style={{ marginTop: "2rem" }}>
+      <div style={{ marginTop: "1.5rem" }}>
+        <h3 className="ui header">Output:</h3>
         <Convert language = {language} text = {text}/>
       </div>
 

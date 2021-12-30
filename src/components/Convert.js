@@ -5,7 +5,7 @@ const Convert = ({ language, text }) => {
     console.log(`language / text has changed !!`);
   }, [language, text]);
 
-  return <h1>lil uzi convert</h1>;
+  return <h3>rendered conversion</h3>;
 };
 
 export default Convert;

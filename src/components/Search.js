@@ -7,14 +7,9 @@ const Search = () => {
   const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
 
-  /* Each time term changes, wait 1 second,
-  then update the debouncedTerm to match. */
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedTerm(term);
-    }, 1000);
-
-    // If the user continues typing cancel and start a new one.
+    const timerId = setTimeout(() => setDebouncedTerm(term), 1000);
+    
     return () => clearTimeout(timerId);
     
   }, [term]);

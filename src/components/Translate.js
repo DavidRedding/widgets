@@ -1,6 +1,7 @@
 // AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM
 import React, { useState } from "react";
 import Dropdown from "./Dropdown";
+import Convert from "./Convert";
 
 const options = [
   { label: "Afrikaans", value: "af" },
@@ -25,6 +26,7 @@ const Translate = () => {
         />
       </div>
 
+      
       <div style={{ marginTop: "2rem" }}>
         <Dropdown
           options={options}
@@ -33,6 +35,11 @@ const Translate = () => {
           title={"Language"}
         />
       </div>
+
+      <div style={{ marginTop: "2rem" }}>
+        <Convert language = {language} text = {text}/>
+      </div>
+
     </div>
   );
 };

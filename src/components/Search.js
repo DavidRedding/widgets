@@ -6,17 +6,12 @@ const Search = () => {
   const [term, setTerm] = useState("christmas");
   const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
-
-  /* Each time term changes, wait 1 second,
-  then update the debouncedTerm to match. */
+  
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedTerm(term);
-    }, 1000);
+    const timerId = setTimeout(() => setDebouncedTerm(term), 1000);
 
-    // If the user continues typing cancel and start a new one.
     return () => clearTimeout(timerId);
-    
+        
   }, [term]);
 
   useEffect(() => {

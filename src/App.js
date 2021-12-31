@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import Translate from "./components/Translate";
+import Translate from "./components/Translate";
 import Accordion from "./components/Accordion";
-// import Search from "./components/Search";
-// import Dropdown from "./components/Dropdown";
+import Search from "./components/Search";
+import Dropdown from "./components/Dropdown";
 
 const items = [
   {
@@ -40,6 +40,31 @@ const showAccordion = () => {
   }
 };
 
+const showList = () => {
+  if (window.location.pathname === "/list") {
+    return <Search />;
+  }
+};
+
+const showDropdown = () => {
+  if (window.location.pathname === "/dropdown") {
+    return <Dropdown />;
+  }
+};
+
+const showTranslate = () => {
+  if (window.location.pathname === "/translate") {
+    return <Translate />;
+  }
+};
+
 export default () => {
-  return <div className="ui container"> {showAccordion()}</div>;
+  return (
+    <div className="ui container">
+      {showAccordion()}
+      {showList()}
+      {showDropdown()}
+      {showTranslate()}
+    </div>
+  );
 };

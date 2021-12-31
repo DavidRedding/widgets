@@ -4,6 +4,7 @@ import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Route from "./components/Route";
+import Header from "./components/Header";
 
 const items = [
   {
@@ -39,6 +40,7 @@ export default () => {
   const [selected, setSelected] = useState(options[0]);
   return (
     <div className="ui container">
+      <Header />
       <Route path="/">
         <Accordion items={items} />
       </Route>

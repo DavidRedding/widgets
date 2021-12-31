@@ -1,0 +1,14 @@
+import React from "react";
+// prettier-ignore
+const Header = () => {
+  return (
+    <div className="ui secondary pointing menu">
+      <a href="/" className="active item">Accordion</a>
+      <a href="/list" className="item">List</a>
+      <a href="/dropdown" className="item">Dropdown</a>
+      <a href="/translate" className="item">Translate</a>
+    </div>
+  );
+};
+
+export default Header;

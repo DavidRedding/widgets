@@ -1,8 +1,15 @@
 import React from "react";
-// prettier-ignore
 
-const Link = ({ className, href, children }) => (
-  <a className={className} href={href}>{children}</a>
-);
+const Link = ({ className, href, children }) => {
+  const onClick = (e) => {
+    // stop page from relooading
+    e.preventDefault();
+  };
 
+  return (
+    <a onClick={onClick} className={className} href={href}>
+      {children}
+    </a>
+  );
+};
 export default Link;
